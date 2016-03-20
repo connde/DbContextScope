@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mehdime.Entity")]
+[assembly: AssemblyTitle("DbContextScope.Ef7")]
 [assembly: AssemblyDescription("A simple and flexible way to manage your Entity Framework DbContext instances.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mehdi El Gueddari")]
-[assembly: AssemblyProduct("Mehdime.Entity")]
+[assembly: AssemblyProduct("DbContextScope.Ef7")]
 [assembly: AssemblyCopyright("Copyright ©  2015 Mehdi El Gueddari")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -8,25 +8,26 @@
 using System;
 using System.Collections;
 using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Messaging;
 using System.Threading;
 using System.Threading.Tasks;
+using DbContextScope.Ef7.Enums;
+using DbContextScope.Ef7.Interfaces;
+using Microsoft.Data.Entity;
+using Microsoft.Data.Entity.Infrastructure;
 
-namespace Mehdime.Entity
+namespace DbContextScope.Ef7.Implementations
 {
     public class DbContextScope : IDbContextScope
     {
-        private bool _disposed;
-        private bool _readOnly;
-        private bool _completed;
-        private bool _nested;
-        private DbContextScope _parentScope;
-        private DbContextCollection _dbContexts;
+        bool _disposed;
+        bool _readOnly;
+        bool _completed;
+        bool _nested;
+        DbContextScope _parentScope;
+        DbContextCollection _dbContexts;
 
         public IDbContextCollection DbContexts { get { return _dbContexts; } }
 
@@ -94,8 +95,6 @@ namespace Mehdime.Entity
 
         public async Task<int> SaveChangesAsync(CancellationToken cancelToken)
         {
-            if (cancelToken == null)
-                throw new ArgumentNullException("cancelToken");
             if (_disposed)
                 throw new ObjectDisposedException("DbContextScope");
             if (_completed)
@@ -113,17 +112,17 @@ namespace Mehdime.Entity
             return c;
         }
 
-        private int CommitInternal()
+        int CommitInternal()
         {
             return _dbContexts.Commit();
         }
 
-        private Task<int> CommitInternalAsync(CancellationToken cancelToken)
+        Task<int> CommitInternalAsync(CancellationToken cancelToken)
         {
             return _dbContexts.CommitAsync(cancelToken);
         }
 
-        private void RollbackInternal()
+        void RollbackInternal()
         {
             _dbContexts.Rollback();
         }
@@ -150,15 +149,10 @@ namespace Mehdime.Entity
             // entities from one DbContext instance to another. NHibernate has support for this sort of stuff 
             // but EF still lags behind in this respect. But there is hope: https://entityframework.codeplex.com/workitem/864
 
-			// NOTE: DbContext implements the ObjectContext property of the IObjectContextAdapter interface explicitely.
-			// So we must cast the DbContext instances to IObjectContextAdapter in order to access their ObjectContext.
-			// This cast is completely safe.
-
-			foreach (IObjectContextAdapter contextInCurrentScope in _dbContexts.InitializedDbContexts.Values)
+            foreach (var contextInCurrentScope in _dbContexts.InitializedDbContexts.Values)
             {
                 var correspondingParentContext =
-                    _parentScope._dbContexts.InitializedDbContexts.Values.SingleOrDefault(parentContext => parentContext.GetType() == contextInCurrentScope.GetType())
-					as IObjectContextAdapter;
+                    _parentScope._dbContexts.InitializedDbContexts.Values.SingleOrDefault(parentContext => parentContext.GetType() == contextInCurrentScope.GetType());
 
                 if (correspondingParentContext == null)
                     continue; // No DbContext of this type has been created in the parent scope yet. So no need to refresh anything for this DbContext type.
@@ -170,22 +164,23 @@ namespace Mehdime.Entity
                 {
                     // First, we need to find what the EntityKey for this entity is. 
                     // We need this EntityKey in order to check if this entity has
-                    // already been loaded in the parent DbContext's first-level cache (the ObjectStateManager).
-                    ObjectStateEntry stateInCurrentScope;
-                    if (contextInCurrentScope.ObjectContext.ObjectStateManager.TryGetObjectStateEntry(toRefresh, out stateInCurrentScope))
+                    // already been loaded in the parent DbContext.
+                    var stateInCurrentScope = contextInCurrentScope.ChangeTracker.GetInfrastructure().TryGetEntry(toRefresh);
+                    if (stateInCurrentScope != null)
                     {
-                        var key = stateInCurrentScope.EntityKey;
+                        var key = stateInCurrentScope.GetPrimaryKeyValue();
 
                         // Now we can see if that entity exists in the parent DbContext instance and refresh it.
-                        ObjectStateEntry stateInParentScope;
-                        if (correspondingParentContext.ObjectContext.ObjectStateManager.TryGetObjectStateEntry(key, out stateInParentScope))
+                        var stateInParentScope = correspondingParentContext.ChangeTracker.GetInfrastructure().TryGetEntry(key);
+                        if (stateInParentScope != null)
                         {
                             // Only refresh the entity in the parent DbContext from the database if that entity hasn't already been
                             // modified in the parent. Otherwise, let the whatever concurency rules the application uses
                             // apply.
-                            if (stateInParentScope.State == EntityState.Unchanged)
+                            if (stateInParentScope.EntityState == EntityState.Unchanged)
                             {
-                                correspondingParentContext.ObjectContext.Refresh(RefreshMode.StoreWins, stateInParentScope.Entity);
+                                // TODO: Update the entity when EF7 implements missing ChangeTracker API
+                                throw new NotImplementedException("There is no way of refreshing entities between DbContexts in EF7-rc1.");
                             }
                         }
                     }
@@ -193,46 +188,49 @@ namespace Mehdime.Entity
             }
         }
 
-        public async Task RefreshEntitiesInParentScopeAsync(IEnumerable entities)
+        public Task RefreshEntitiesInParentScopeAsync(IEnumerable entities)
         {
             // See comments in the sync version of this method for an explanation of what we're doing here.
 
             if (entities == null)
-                return;
+                return Task.FromResult(0);
 
             if (_parentScope == null)
-                return;
+                return Task.FromResult(0);
 
-            if (_nested) 
-                return;
+            if (_nested)
+                return Task.FromResult(0);
 
-			foreach (IObjectContextAdapter contextInCurrentScope in _dbContexts.InitializedDbContexts.Values)
+            foreach (var contextInCurrentScope in _dbContexts.InitializedDbContexts.Values)
             {
                 var correspondingParentContext =
-                    _parentScope._dbContexts.InitializedDbContexts.Values.SingleOrDefault(parentContext => parentContext.GetType() == contextInCurrentScope.GetType())
-					as IObjectContextAdapter;
+                    _parentScope._dbContexts.InitializedDbContexts.Values.SingleOrDefault(parentContext => parentContext.GetType() == contextInCurrentScope.GetType());
 
                 if (correspondingParentContext == null)
                     continue; 
 
                 foreach (var toRefresh in entities)
                 {
-                    ObjectStateEntry stateInCurrentScope;
-                    if (contextInCurrentScope.ObjectContext.ObjectStateManager.TryGetObjectStateEntry(toRefresh, out stateInCurrentScope))
+                    var stateInCurrentScope = contextInCurrentScope.ChangeTracker.GetInfrastructure().TryGetEntry(toRefresh);
+                    if (stateInCurrentScope != null)
                     {
-                        var key = stateInCurrentScope.EntityKey;
+                        var key = stateInCurrentScope.GetPrimaryKeyValue();
 
-                        ObjectStateEntry stateInParentScope;
-                        if (correspondingParentContext.ObjectContext.ObjectStateManager.TryGetObjectStateEntry(key, out stateInParentScope))
+                        var stateInParentScope = correspondingParentContext.ChangeTracker.GetInfrastructure().TryGetEntry(key);
+                        if (stateInParentScope != null)
                         {
-                            if (stateInParentScope.State == EntityState.Unchanged)
+                            if (stateInParentScope.EntityState == EntityState.Unchanged)
                             {
-                                await correspondingParentContext.ObjectContext.RefreshAsync(RefreshMode.StoreWins, stateInParentScope.Entity).ConfigureAwait(false);
+                                // TODO: Update the entity when EF7 implements missing ChangeTracker API
+                                var tcs = new TaskCompletionSource<object>();
+                                tcs.SetException(new NotImplementedException("There is no way of refreshing entities between DbContexts in EF7."));
+                                return tcs.Task;
                             }
                         }
                     }
                 }
             }
+            return Task.FromResult(0);
         }
 
         public void Dispose()
@@ -410,7 +408,7 @@ Stack Trace:
          * 
          */
 
-        private static readonly string AmbientDbContextScopeKey = "AmbientDbcontext_" + Guid.NewGuid();
+        static readonly string AmbientDbContextScopeKey = "AmbientDbcontext_" + Guid.NewGuid();
 
         // Use a ConditionalWeakTable instead of a simple ConcurrentDictionary to store our DbContextScope instances 
         // in order to prevent leaking DbContextScope instances if someone doesn't dispose them properly.
@@ -421,9 +419,9 @@ Stack Trace:
         // to the DbContextScope instances we store in there, allowing them to get GCed.
         // The doc for ConditionalWeakTable isn't the best. This SO anser does a good job at explaining what 
         // it does: http://stackoverflow.com/a/18613811
-        private static readonly ConditionalWeakTable<InstanceIdentifier, DbContextScope> DbContextScopeInstances = new ConditionalWeakTable<InstanceIdentifier, DbContextScope>();
+        static readonly ConditionalWeakTable<InstanceIdentifier, DbContextScope> DbContextScopeInstances = new ConditionalWeakTable<InstanceIdentifier, DbContextScope>();
 
-        private InstanceIdentifier _instanceIdentifier = new InstanceIdentifier();
+        InstanceIdentifier _instanceIdentifier = new InstanceIdentifier();
 
         /// <summary>
         /// Makes the provided 'dbContextScope' available as the the ambient scope via the CallContext.
@@ -431,7 +429,7 @@ Stack Trace:
         internal static void SetAmbientScope(DbContextScope newAmbientScope)
         {
             if (newAmbientScope == null)
-                throw new ArgumentNullException("newAmbientScope");
+                throw new ArgumentNullException(nameof(newAmbientScope));
 
             var current = CallContext.LogicalGetData(AmbientDbContextScopeKey) as InstanceIdentifier;
 
@@ -514,7 +512,7 @@ Stack Trace:
      * an empty class is cheaper and uses up less memory than generating
      * a unique string.
     */
-    internal class InstanceIdentifier : MarshalByRefObject
+    class InstanceIdentifier : MarshalByRefObject
     { }
 }
 

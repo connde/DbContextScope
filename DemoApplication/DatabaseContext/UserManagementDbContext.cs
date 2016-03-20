@@ -1,24 +1,22 @@
-﻿using System.Data.Entity;
-using System.Reflection;
+﻿using Microsoft.Data.Entity;
 using Numero3.EntityFramework.Demo.DomainModel;
 
 namespace Numero3.EntityFramework.Demo.DatabaseContext
 {
-	public class UserManagementDbContext : DbContext
-	{
-		// Map our 'User' model by convention
-		public DbSet<User> Users { get; set; }
+    public class UserManagementDbContext : DbContext
+    {
+        public DbSet<User> Users { get; set; }
 
-		public UserManagementDbContext() : base("Server=localhost;Database=DbContextScopeDemo;Trusted_Connection=true;")
-		{}
+        readonly string connectionString;
 
-		protected override void OnModelCreating(DbModelBuilder modelBuilder)
-		{
-			base.OnModelCreating(modelBuilder);
+        public UserManagementDbContext()
+        {
+            connectionString = "Server=localhost;Database=DbContextScopeDemo;Trusted_Connection=true;";
+        }
 
-			// Overrides for the convention-based mappings.
-			// We're assuming that all our fluent mappings are declared in this assembly.
-			modelBuilder.Configurations.AddFromAssembly(Assembly.GetAssembly(typeof(UserManagementDbContext)));
-		}
-	}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+    }
 }

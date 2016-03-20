@@ -5,9 +5,10 @@
  * This software may be modified and distributed under the terms
  * of the MIT license.  See the LICENSE file for details.
  */
-using System.Data.Entity;
+using DbContextScope.Ef7.Interfaces;
+using Microsoft.Data.Entity;
 
-namespace Mehdime.Entity
+namespace DbContextScope.Ef7.Implementations
 {
     public class AmbientDbContextLocator : IAmbientDbContextLocator
     {

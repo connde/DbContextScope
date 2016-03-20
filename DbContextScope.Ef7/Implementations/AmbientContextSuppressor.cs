@@ -7,12 +7,12 @@
  */
 using System;
 
-namespace Mehdime.Entity
+namespace DbContextScope.Ef7.Implementations
 {
     public class AmbientContextSuppressor : IDisposable
     {
-        private DbContextScope _savedScope;
-        private bool _disposed;
+        DbContextScope _savedScope;
+        bool _disposed;
 
         public AmbientContextSuppressor()
         {

@@ -8,12 +8,14 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Runtime.ExceptionServices;
 using System.Threading;
 using System.Threading.Tasks;
+using DbContextScope.Ef7.Interfaces;
+using Microsoft.Data.Entity;
+using Microsoft.Data.Entity.Storage;
 
-namespace Mehdime.Entity
+namespace DbContextScope.Ef7.Implementations
 {
     /// <summary>
     /// As its name suggests, DbContextCollection maintains a collection of DbContext instances.
@@ -29,13 +31,13 @@ namespace Mehdime.Entity
     /// </summary>
     public class DbContextCollection : IDbContextCollection
     {
-        private Dictionary<Type, DbContext> _initializedDbContexts;
-        private Dictionary<DbContext, DbContextTransaction> _transactions; 
-        private IsolationLevel? _isolationLevel;
-        private readonly IDbContextFactory _dbContextFactory;
-        private bool _disposed;
-        private bool _completed;
-        private bool _readOnly;
+        Dictionary<Type, DbContext> _initializedDbContexts;
+        Dictionary<DbContext, IRelationalTransaction> _transactions;
+        IsolationLevel? _isolationLevel;
+        readonly IDbContextFactory _dbContextFactory;
+        bool _disposed;
+        bool _completed;
+        bool _readOnly;
 
         internal Dictionary<Type, DbContext> InitializedDbContexts { get { return _initializedDbContexts; } }
 
@@ -45,7 +47,7 @@ namespace Mehdime.Entity
             _completed = false;
 
             _initializedDbContexts = new Dictionary<Type, DbContext>();
-            _transactions = new Dictionary<DbContext, DbContextTransaction>();
+            _transactions = new Dictionary<DbContext, IRelationalTransaction>();
 
             _readOnly = readOnly;
             _isolationLevel = isolationLevel;
@@ -69,10 +71,7 @@ namespace Mehdime.Entity
 
                 _initializedDbContexts.Add(requestedType, dbContext);
 
-                if (_readOnly)
-                {
-                    dbContext.Configuration.AutoDetectChangesEnabled = false;
-                }
+                dbContext.ChangeTracker.AutoDetectChangesEnabled &= !_readOnly;
 
                 if (_isolationLevel.HasValue)
                 {
@@ -81,7 +80,7 @@ namespace Mehdime.Entity
                 }
             }
 
-            return _initializedDbContexts[requestedType]  as TDbContext;
+            return _initializedDbContexts[requestedType] as TDbContext;
         }
 
         public int Commit()
@@ -126,6 +125,7 @@ namespace Mehdime.Entity
                     {
                         tran.Commit();
                         tran.Dispose();
+                        _transactions.Remove(dbContext);
                     }
                 }
                 catch (Exception e)
@@ -134,11 +134,12 @@ namespace Mehdime.Entity
                 }
             }
 
-            _transactions.Clear();
-            _completed = true;
-
             if (lastError != null)
                 lastError.Throw(); // Re-throw while maintaining the exception's original stack track
+            else
+            {
+                _completed = true;
+            }
 
             return c;
         }
@@ -150,8 +151,6 @@ namespace Mehdime.Entity
 
         public async Task<int> CommitAsync(CancellationToken cancelToken)
         {
-            if (cancelToken == null)
-                throw new ArgumentNullException("cancelToken");
             if (_disposed)
                 throw new ObjectDisposedException("DbContextCollection");
             if (_completed)
@@ -178,6 +177,7 @@ namespace Mehdime.Entity
                     {
                         tran.Commit();
                         tran.Dispose();
+                        _transactions.Remove(dbContext);
                     }
                 }
                 catch (Exception e)
@@ -186,11 +186,12 @@ namespace Mehdime.Entity
                 }
             }
 
-            _transactions.Clear();
-            _completed = true;
-
             if (lastError != null)
                 lastError.Throw(); // Re-throw while maintaining the exception's original stack track
+            else
+            {
+                _completed = true;
+            }
 
             return c;
         }
@@ -276,7 +277,7 @@ namespace Mehdime.Entity
         /// Returns the value associated with the specified key or the default 
         /// value for the TValue  type.
         /// </summary>
-        private static TValue GetValueOrDefault<TKey, TValue>(IDictionary<TKey, TValue> dictionary, TKey key)
+        static TValue GetValueOrDefault<TKey, TValue>(IDictionary<TKey, TValue> dictionary, TKey key)
         {
             TValue value;
             return dictionary.TryGetValue(key, out value) ? value : default(TValue);

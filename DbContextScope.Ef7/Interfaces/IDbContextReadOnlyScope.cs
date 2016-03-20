@@ -7,7 +7,7 @@
  */
 using System;
 
-namespace Mehdime.Entity
+namespace DbContextScope.Ef7.Interfaces
 {
     /// <summary>
     /// A read-only DbContextScope. Refer to the comments for IDbContextScope

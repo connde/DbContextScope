@@ -1,0 +1,13 @@
+﻿{
+    "version": "0.1.0-beta-*",
+    "authors": [ "Mehdi El Gueddari" ],
+    "description": "A simple and flexible way to manage your Entity Framework DbContext instances.",
+    "dependencies": {
+        "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
+    },
+
+    "frameworks": {
+      "dnx451": { },
+      "dnx46": { }
+    }
+}

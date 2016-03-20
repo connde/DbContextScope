@@ -6,12 +6,14 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 using System.Data;
+using DbContextScope.Ef7.Enums;
+using DbContextScope.Ef7.Interfaces;
 
-namespace Mehdime.Entity
+namespace DbContextScope.Ef7.Implementations
 {
     public class DbContextReadOnlyScope : IDbContextReadOnlyScope
     {
-        private DbContextScope _internalScope;
+        readonly DbContextScope _internalScope;
 
         public IDbContextCollection DbContexts { get { return _internalScope.DbContexts; } }
 
@@ -25,7 +27,7 @@ namespace Mehdime.Entity
 
         public DbContextReadOnlyScope(DbContextScopeOption joiningOption, IsolationLevel? isolationLevel, IDbContextFactory dbContextFactory = null)
         {
-            _internalScope = new DbContextScope(joiningOption: joiningOption, readOnly: true, isolationLevel: isolationLevel, dbContextFactory: dbContextFactory);
+            _internalScope = new DbContextScope(joiningOption, true, isolationLevel, dbContextFactory);
         }
 
         public void Dispose()

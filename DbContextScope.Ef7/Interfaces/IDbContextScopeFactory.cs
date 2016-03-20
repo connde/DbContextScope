@@ -7,8 +7,9 @@
  */
 using System;
 using System.Data;
+using DbContextScope.Ef7.Enums;
 
-namespace Mehdime.Entity
+namespace DbContextScope.Ef7.Interfaces
 {
     /// <summary>
     /// Convenience methods to create a new ambient DbContextScope. This is the prefered method

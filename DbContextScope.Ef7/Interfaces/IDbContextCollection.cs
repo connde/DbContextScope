@@ -6,9 +6,9 @@
  * of the MIT license.  See the LICENSE file for details.
  */
 using System;
-using System.Data.Entity;
+using Microsoft.Data.Entity;
 
-namespace Mehdime.Entity
+namespace DbContextScope.Ef7.Interfaces
 {
     /// <summary>
     /// Maintains a list of lazily-created DbContext instances.
@@ -18,6 +18,6 @@ namespace Mehdime.Entity
         /// <summary>
         /// Get or create a DbContext instance of the specified type. 
         /// </summary>
-		TDbContext Get<TDbContext>() where TDbContext : DbContext;
+        TDbContext Get<TDbContext>() where TDbContext : DbContext;
     }
 }

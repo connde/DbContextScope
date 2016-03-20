@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo Application", "DemoApplication\Demo Application.csproj", "{977FC0C6-4FDF-4DD9-AAC0-456D4D79C96C}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DbContextScope.Ef7", "DbContextScope.Ef7\DbContextScope.Ef7.xproj", "{AB70542C-890D-4630-B27E-14F9587DD278}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B9148EB1-044F-442C-AC23-B6ADD1E3FB2E}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Demo Application", "DemoApplication\Demo Application.xproj", "{C7710DE2-92AE-49C8-8645-DB1300A2CD9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{81DA8C35-7725-4BEF-B90C-F6D3040498FE}"
 	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
+		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mehdime.Entity", "Mehdime.Entity\Mehdime.Entity.csproj", "{4830BAFD-4163-473E-B00F-65F274AC165F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6258D4E6-ECD4-45A6-951D-211A52A1183E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,16 +20,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{977FC0C6-4FDF-4DD9-AAC0-456D4D79C96C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{977FC0C6-4FDF-4DD9-AAC0-456D4D79C96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{977FC0C6-4FDF-4DD9-AAC0-456D4D79C96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{977FC0C6-4FDF-4DD9-AAC0-456D4D79C96C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4830BAFD-4163-473E-B00F-65F274AC165F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4830BAFD-4163-473E-B00F-65F274AC165F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4830BAFD-4163-473E-B00F-65F274AC165F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4830BAFD-4163-473E-B00F-65F274AC165F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB70542C-890D-4630-B27E-14F9587DD278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB70542C-890D-4630-B27E-14F9587DD278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB70542C-890D-4630-B27E-14F9587DD278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB70542C-890D-4630-B27E-14F9587DD278}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7710DE2-92AE-49C8-8645-DB1300A2CD9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7710DE2-92AE-49C8-8645-DB1300A2CD9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7710DE2-92AE-49C8-8645-DB1300A2CD9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7710DE2-92AE-49C8-8645-DB1300A2CD9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB70542C-890D-4630-B27E-14F9587DD278} = {6258D4E6-ECD4-45A6-951D-211A52A1183E}
+		{C7710DE2-92AE-49C8-8645-DB1300A2CD9C} = {6258D4E6-ECD4-45A6-951D-211A52A1183E}
 	EndGlobalSection
 EndGlobal

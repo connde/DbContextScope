@@ -1,0 +1,26 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "Demo App for DbContextScope",
+  "authors": [ "Mehdi El Gueddari" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "DbContextScope.Ef7": "",
+    "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
+  },
+
+  "commands": {
+    "DbContextScope.Demo": "DbContextScope.Demo"
+  },
+
+  "frameworks": {
+    "dnx451": { },
+    "dnx46" : { }
+  }
+}
