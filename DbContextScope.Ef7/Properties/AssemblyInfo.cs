@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mehdi El Gueddari")]
 [assembly: AssemblyProduct("DbContextScope.Ef7")]
-[assembly: AssemblyCopyright("Copyright ©  2015 Mehdi El Gueddari")]
+[assembly: AssemblyCopyright("Copyright © 2015 Mehdi El Gueddari")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
