@@ -1,0 +1,19 @@
+﻿{
+  "title": "DbContextScope.UnitOfWork.Ef7",
+  "version": "1.0.1",
+  "authors": [ "Camilo Fierro" ],
+  "description": "This package provides a way to implement Unit Of Work and Repository patterns with Entity Framework 7 and DbContextScope.",
+  "tags": [ "Unit of Work, Repository, Pattern, Data, EntityFramework, ASP.NET, DbContext, DbContextScope" ],
+  "projectUrl": "https://github.com/ninety7/DbContextScope",
+  "licenseUrl": "",
+
+  "dependencies": {
+    "DbContextScope.Ef7": "",
+    "DbContextScope.UnitOfWork.Core": ""
+  },
+
+  "frameworks": {
+    "dnx451": { },
+    "dnx46": { }
+  }
+}

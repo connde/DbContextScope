@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DbContextScope.Ef7.UnitOfWork")]
+[assembly: AssemblyTitle("DbContextScope.UnitOfWork.Ef7")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DbContextScope.Ef7.UnitOfWork")]
+[assembly: AssemblyProduct("DbContextScope.UnitOfWork.Ef7")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

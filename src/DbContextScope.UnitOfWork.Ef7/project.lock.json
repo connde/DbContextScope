@@ -3,22 +3,11 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "DbContextScope.Ef7/0.1.0": {
-        "type": "package",
+      "DbContextScope.Ef7/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
-          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/DbContextScope.Ef7.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/DbContextScope.Ef7.dll": {}
+          "EntityFramework.Relational": "7.0.0-rc1-final"
         }
       },
       "DbContextScope.UnitOfWork.Core/1.0.0": {
@@ -65,24 +54,6 @@
         },
         "runtime": {
           "lib/dnx451/EntityFramework.Core.dll": {}
-        }
-      },
-      "EntityFramework.MicrosoftSqlServer/7.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "EntityFramework.Relational": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
-        },
-        "runtime": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
         }
       },
       "EntityFramework.Relational/7.0.0-rc1-final": {
@@ -375,22 +346,11 @@
       }
     },
     "DNX,Version=v4.6": {
-      "DbContextScope.Ef7/0.1.0": {
-        "type": "package",
+      "DbContextScope.Ef7/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.6",
         "dependencies": {
-          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx46/DbContextScope.Ef7.dll": {}
-        },
-        "runtime": {
-          "lib/dnx46/DbContextScope.Ef7.dll": {}
+          "EntityFramework.Relational": "7.0.0-rc1-final"
         }
       },
       "DbContextScope.UnitOfWork.Core/1.0.0": {
@@ -437,24 +397,6 @@
         },
         "runtime": {
           "lib/dnx451/EntityFramework.Core.dll": {}
-        }
-      },
-      "EntityFramework.MicrosoftSqlServer/7.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "EntityFramework.Relational": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
-        },
-        "runtime": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
         }
       },
       "EntityFramework.Relational/7.0.0-rc1-final": {
@@ -747,22 +689,11 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "DbContextScope.Ef7/0.1.0": {
-        "type": "package",
+      "DbContextScope.Ef7/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
-          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/DbContextScope.Ef7.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/DbContextScope.Ef7.dll": {}
+          "EntityFramework.Relational": "7.0.0-rc1-final"
         }
       },
       "DbContextScope.UnitOfWork.Core/1.0.0": {
@@ -809,24 +740,6 @@
         },
         "runtime": {
           "lib/dnx451/EntityFramework.Core.dll": {}
-        }
-      },
-      "EntityFramework.MicrosoftSqlServer/7.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "EntityFramework.Relational": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
-        },
-        "runtime": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
         }
       },
       "EntityFramework.Relational/7.0.0-rc1-final": {
@@ -1119,22 +1032,11 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "DbContextScope.Ef7/0.1.0": {
-        "type": "package",
+      "DbContextScope.Ef7/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
-          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx451/DbContextScope.Ef7.dll": {}
-        },
-        "runtime": {
-          "lib/dnx451/DbContextScope.Ef7.dll": {}
+          "EntityFramework.Relational": "7.0.0-rc1-final"
         }
       },
       "DbContextScope.UnitOfWork.Core/1.0.0": {
@@ -1181,24 +1083,6 @@
         },
         "runtime": {
           "lib/dnx451/EntityFramework.Core.dll": {}
-        }
-      },
-      "EntityFramework.MicrosoftSqlServer/7.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "EntityFramework.Relational": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
-        },
-        "runtime": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
         }
       },
       "EntityFramework.Relational/7.0.0-rc1-final": {
@@ -1491,22 +1375,11 @@
       }
     },
     "DNX,Version=v4.6/win7-x86": {
-      "DbContextScope.Ef7/0.1.0": {
-        "type": "package",
+      "DbContextScope.Ef7/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.6",
         "dependencies": {
-          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx46/DbContextScope.Ef7.dll": {}
-        },
-        "runtime": {
-          "lib/dnx46/DbContextScope.Ef7.dll": {}
+          "EntityFramework.Relational": "7.0.0-rc1-final"
         }
       },
       "DbContextScope.UnitOfWork.Core/1.0.0": {
@@ -1553,24 +1426,6 @@
         },
         "runtime": {
           "lib/dnx451/EntityFramework.Core.dll": {}
-        }
-      },
-      "EntityFramework.MicrosoftSqlServer/7.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "EntityFramework.Relational": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
-        },
-        "runtime": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
         }
       },
       "EntityFramework.Relational/7.0.0-rc1-final": {
@@ -1863,22 +1718,11 @@
       }
     },
     "DNX,Version=v4.6/win7-x64": {
-      "DbContextScope.Ef7/0.1.0": {
-        "type": "package",
+      "DbContextScope.Ef7/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.6",
         "dependencies": {
-          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/dnx46/DbContextScope.Ef7.dll": {}
-        },
-        "runtime": {
-          "lib/dnx46/DbContextScope.Ef7.dll": {}
+          "EntityFramework.Relational": "7.0.0-rc1-final"
         }
       },
       "DbContextScope.UnitOfWork.Core/1.0.0": {
@@ -1925,24 +1769,6 @@
         },
         "runtime": {
           "lib/dnx451/EntityFramework.Core.dll": {}
-        }
-      },
-      "EntityFramework.MicrosoftSqlServer/7.0.0-rc1-final": {
-        "type": "package",
-        "dependencies": {
-          "EntityFramework.Relational": "7.0.0-rc1-final"
-        },
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "mscorlib",
-          "System",
-          "System.Core"
-        ],
-        "compile": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
-        },
-        "runtime": {
-          "lib/net451/EntityFramework.MicrosoftSqlServer.dll": {}
         }
       },
       "EntityFramework.Relational/7.0.0-rc1-final": {
@@ -2236,22 +2062,13 @@
     }
   },
   "libraries": {
+    "DbContextScope.Ef7/1.0.0": {
+      "type": "project",
+      "path": "../DbContextScope.Ef7/project.json"
+    },
     "DbContextScope.UnitOfWork.Core/1.0.0": {
       "type": "project",
       "path": "../DbContextScope.UnitOfWork.Core/project.json"
-    },
-    "DbContextScope.Ef7/0.1.0": {
-      "type": "package",
-      "sha512": "5teU8IiXFsn7liDiAszsIwZj9mnKCsDD41IRy+8vG9caveUktbpjLR/A73Et3NtJSAN5537X70IBt0XAVYdS3g==",
-      "files": [
-        "DbContextScope.Ef7.0.1.0.nupkg",
-        "DbContextScope.Ef7.0.1.0.nupkg.sha512",
-        "DbContextScope.Ef7.nuspec",
-        "lib/dnx451/DbContextScope.Ef7.dll",
-        "lib/dnx451/DbContextScope.Ef7.xml",
-        "lib/dnx46/DbContextScope.Ef7.dll",
-        "lib/dnx46/DbContextScope.Ef7.xml"
-      ]
     },
     "EntityFramework.Core/7.0.0-rc1-final": {
       "type": "package",
@@ -2269,22 +2086,6 @@
         "lib/net451/EntityFramework.Core.xml",
         "lib/netcore50/EntityFramework.Core.dll",
         "lib/netcore50/EntityFramework.Core.xml"
-      ]
-    },
-    "EntityFramework.MicrosoftSqlServer/7.0.0-rc1-final": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "FMB2MgT5aXMF7qGMwf5AGcmpNFoT4s1w0QJ5h+L8W4gyMxWpYamGp9hms7rOSAWY44ZDl5ZMpxiTfu3nY3Nqeg==",
-      "files": [
-        "EntityFramework.MicrosoftSqlServer.7.0.0-rc1-final.nupkg",
-        "EntityFramework.MicrosoftSqlServer.7.0.0-rc1-final.nupkg.sha512",
-        "EntityFramework.MicrosoftSqlServer.nuspec",
-        "lib/dotnet5.4/EntityFramework.MicrosoftSqlServer.dll",
-        "lib/dotnet5.4/EntityFramework.MicrosoftSqlServer.xml",
-        "lib/net451/EntityFramework.MicrosoftSqlServer.dll",
-        "lib/net451/EntityFramework.MicrosoftSqlServer.xml",
-        "lib/netcore50/EntityFramework.MicrosoftSqlServer.dll",
-        "lib/netcore50/EntityFramework.MicrosoftSqlServer.xml"
       ]
     },
     "EntityFramework.Relational/7.0.0-rc1-final": {
@@ -2683,7 +2484,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "DbContextScope.Ef7 >= 0.1.0",
+      "DbContextScope.Ef7 ",
       "DbContextScope.UnitOfWork.Core "
     ],
     "DNX,Version=v4.5.1": [],

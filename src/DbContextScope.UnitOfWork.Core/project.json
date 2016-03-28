@@ -1,10 +1,10 @@
 ﻿{
   "title": "DbContextScope.UnitOfWork.Core",
-  "version": "1.0.0-*",
+  "version": "1.0.1",
   "authors": [ "Camilo Fierro" ],
-  "description": "DbContextScope.UnitOfWork.Core Class Library",
-  "tags": [ "EntityFramework, ASP.NET, DbContext, Unit Of Work, Pattern, Repository" ],
-  "projectUrl": "",
+  "description": "This package contains base interfaces that enable developers to implement Unit Of Work and Repository patterns with data stores.",
+  "tags": [ "Unit of Work, Repository, Pattern, Data, EntityFramework, ASP.NET, DbContext" ],
+  "projectUrl": "https://github.com/ninety7/DbContextScope",
   "licenseUrl": "",
 
   "frameworks": {
