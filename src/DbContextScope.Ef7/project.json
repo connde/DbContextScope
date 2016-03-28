@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "authors": [ "Mehdi El Gueddari, Camilo Fierro" ],
   "description": "A simple and flexible way to manage your Entity Framework DbContext instances.",
+  "tags": [ "EntityFramework, ASP.NET, DbContext" ],
+
   "dependencies": {
     "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
   },

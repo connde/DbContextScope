@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DbContextScope.Ef7", "DbContextScope.Ef7\DbContextScope.Ef7.xproj", "{AB70542C-890D-4630-B27E-14F9587DD278}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Demo Application", "DemoApplication\Demo Application.xproj", "{C7710DE2-92AE-49C8-8645-DB1300A2CD9C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{81DA8C35-7725-4BEF-B90C-F6D3040498FE}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
@@ -14,12 +10,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6258D4E6-ECD4-45A6-951D-211A52A1183E}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DbContextScope.UnitOfWork.Core", "src\DbContextScope.UnitOfWork.Core\DbContextScope.UnitOfWork.Core.xproj", "{1C3207F7-9381-453F-8783-B3D52A0C9B8B}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DbContextScope.UnitOfWork.Ef7", "src\DbContextScope.Ef7.UnitOfWork\DbContextScope.UnitOfWork.Ef7.xproj", "{E053CA11-B054-46D7-AF4E-84AEFF0AA1E3}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DbContextScope.Ef7", "src\DbContextScope.Ef7\DbContextScope.Ef7.xproj", "{AB70542C-890D-4630-B27E-14F9587DD278}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Demo Application", "src\DemoApplication\Demo Application.xproj", "{C7710DE2-92AE-49C8-8645-DB1300A2CD9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C3207F7-9381-453F-8783-B3D52A0C9B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C3207F7-9381-453F-8783-B3D52A0C9B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C3207F7-9381-453F-8783-B3D52A0C9B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C3207F7-9381-453F-8783-B3D52A0C9B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E053CA11-B054-46D7-AF4E-84AEFF0AA1E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E053CA11-B054-46D7-AF4E-84AEFF0AA1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E053CA11-B054-46D7-AF4E-84AEFF0AA1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E053CA11-B054-46D7-AF4E-84AEFF0AA1E3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AB70542C-890D-4630-B27E-14F9587DD278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AB70542C-890D-4630-B27E-14F9587DD278}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB70542C-890D-4630-B27E-14F9587DD278}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +45,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{1C3207F7-9381-453F-8783-B3D52A0C9B8B} = {6258D4E6-ECD4-45A6-951D-211A52A1183E}
+		{E053CA11-B054-46D7-AF4E-84AEFF0AA1E3} = {6258D4E6-ECD4-45A6-951D-211A52A1183E}
 		{AB70542C-890D-4630-B27E-14F9587DD278} = {6258D4E6-ECD4-45A6-951D-211A52A1183E}
 		{C7710DE2-92AE-49C8-8645-DB1300A2CD9C} = {6258D4E6-ECD4-45A6-951D-211A52A1183E}
 	EndGlobalSection
