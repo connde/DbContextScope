@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using DbContextScope.Ef7.Interfaces;
+using DbContextScope.EfCore.Interfaces;
 using Numero3.EntityFramework.Demo.DatabaseContext;
 using Numero3.EntityFramework.Demo.DomainModel;
 using Numero3.EntityFramework.Demo.Repositories;

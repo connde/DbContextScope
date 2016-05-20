@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using DbContextScope.Ef7.Implementations;
+using DbContextScope.EfCore.Implementations;
 using Numero3.EntityFramework.Demo.BusinessLogicServices;
 using Numero3.EntityFramework.Demo.CommandModel;
 using Numero3.EntityFramework.Demo.DatabaseContext;

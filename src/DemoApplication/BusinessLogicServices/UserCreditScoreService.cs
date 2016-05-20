@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using DbContextScope.Ef7.Interfaces;
+using DbContextScope.EfCore.Interfaces;
 using Numero3.EntityFramework.Demo.DatabaseContext;
 
 namespace Numero3.EntityFramework.Demo.BusinessLogicServices

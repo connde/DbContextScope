@@ -52,18 +52,6 @@
           "lib/net451/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/1.0.0-rc2-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "1.0.0-rc2-final"
-        },
-        "compile": {
-          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
-        }
-      },
       "Microsoft.Extensions.Caching.Abstractions/1.0.0-rc2-final": {
         "type": "package",
         "dependencies": {
@@ -339,19 +327,6 @@
         "runtime": {
           "lib/net45/_._": {}
         }
-      },
-      "DbContextScope.EfCore/1.1.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "1.0.0-rc2-final"
-        },
-        "compile": {
-          "net451/DbContextScope.EfCore.dll": {}
-        },
-        "runtime": {
-          "net451/DbContextScope.EfCore.dll": {}
-        }
       }
     }
   },
@@ -360,7 +335,6 @@
       "sha512": "8EXO8q7cpDUH9G2q+UOPOO/6uZ9aN7mx/4xjFIfkp+qLWVJiYuglkRhjY8Ggs2CucXzHR8GHnovJKB5yQoYaJg==",
       "type": "package",
       "files": [
-        "Ix-Async.1.2.5.nupkg",
         "Ix-Async.1.2.5.nupkg.sha512",
         "Ix-Async.nuspec",
         "lib/net40/System.Interactive.Async.XML",
@@ -397,18 +371,6 @@
         "lib/netcore50/Microsoft.EntityFrameworkCore.Relational.xml",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.xml"
-      ]
-    },
-    "Microsoft.EntityFrameworkCore.SqlServer/1.0.0-rc2-final": {
-      "sha512": "5BJ9VrgVbP/OqIuRow8nZkwbtr5CKjCyQGaXsBLZbzL8LZRkY1rb8kWYBusTJeZ2LjnnV0liQeNPRs3C15pIPQ==",
-      "type": "package",
-      "files": [
-        "Microsoft.EntityFrameworkCore.SqlServer.1.0.0-rc2-final.nupkg.sha512",
-        "Microsoft.EntityFrameworkCore.SqlServer.nuspec",
-        "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll",
-        "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.dll",
-        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.xml"
       ]
     },
     "Microsoft.Extensions.Caching.Abstractions/1.0.0-rc2-final": {
@@ -1514,17 +1476,11 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
-    },
-    "DbContextScope.EfCore/1.1.0": {
-      "type": "project",
-      "path": "../DbContextScope.EfCore/project.json",
-      "msbuildProject": "../DbContextScope.EfCore/DbContextScope.EfCore.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "DbContextScope.EfCore >= 1.1.0",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 1.0.0-rc2-final"
+      "Microsoft.EntityFrameworkCore.Relational >= 1.0.0-rc2-final"
     ],
     ".NETFramework,Version=v4.5.1": []
   },

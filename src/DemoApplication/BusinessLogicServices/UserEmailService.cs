@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DbContextScope.Ef7.Enums;
-using DbContextScope.Ef7.Interfaces;
+using DbContextScope.EfCore.Enums;
+using DbContextScope.EfCore.Interfaces;
 using Numero3.EntityFramework.Demo.DatabaseContext;
 using Numero3.EntityFramework.Demo.DomainModel;
 

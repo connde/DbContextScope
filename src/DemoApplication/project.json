@@ -2,17 +2,14 @@
   "version": "1.0.0-*",
   "description": "Demo App for DbContextScope",
   "authors": [ "Mehdi El Gueddari" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
 
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true
   },
 
   "dependencies": {
-    "DbContextScope.Ef7": "",
-    "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
+    "DbContextScope.EfCore": "1.1.0",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-rc2-final"
   },
 
   "commands": {
@@ -20,7 +17,6 @@
   },
 
   "frameworks": {
-    "dnx451": { },
-    "dnx46" : { }
+    "net4.5.1": { }
   }
 }

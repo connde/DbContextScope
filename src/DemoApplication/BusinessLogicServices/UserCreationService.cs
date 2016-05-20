@@ -1,5 +1,5 @@
 ﻿using System;
-using DbContextScope.Ef7.Interfaces;
+using DbContextScope.EfCore.Interfaces;
 using Numero3.EntityFramework.Demo.CommandModel;
 using Numero3.EntityFramework.Demo.DomainModel;
 using Numero3.EntityFramework.Demo.Repositories;

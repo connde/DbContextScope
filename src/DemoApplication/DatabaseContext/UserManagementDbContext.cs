@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
 using Numero3.EntityFramework.Demo.DomainModel;
 
 namespace Numero3.EntityFramework.Demo.DatabaseContext
@@ -11,7 +11,7 @@ namespace Numero3.EntityFramework.Demo.DatabaseContext
 
         public UserManagementDbContext()
         {
-            connectionString = "Server=localhost;Database=DbContextScopeDemo;Trusted_Connection=true;";
+            connectionString = "Server=(localdb)\\mssqllocaldb;Database=DbContextScopeDemo;Trusted_Connection=True;MultipleActiveResultSets=true";
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -52,18 +52,6 @@
           "lib/net451/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/1.0.0-rc2-final": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "1.0.0-rc2-final"
-        },
-        "compile": {
-          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
-        }
-      },
       "Microsoft.Extensions.Caching.Abstractions/1.0.0-rc2-final": {
         "type": "package",
         "dependencies": {
@@ -352,6 +340,16 @@
         "runtime": {
           "net451/DbContextScope.EfCore.dll": {}
         }
+      },
+      "DbContextScope.UnitOfWork.Core/1.1.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "compile": {
+          "net451/DbContextScope.UnitOfWork.Core.dll": {}
+        },
+        "runtime": {
+          "net451/DbContextScope.UnitOfWork.Core.dll": {}
+        }
       }
     }
   },
@@ -397,18 +395,6 @@
         "lib/netcore50/Microsoft.EntityFrameworkCore.Relational.xml",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.xml"
-      ]
-    },
-    "Microsoft.EntityFrameworkCore.SqlServer/1.0.0-rc2-final": {
-      "sha512": "5BJ9VrgVbP/OqIuRow8nZkwbtr5CKjCyQGaXsBLZbzL8LZRkY1rb8kWYBusTJeZ2LjnnV0liQeNPRs3C15pIPQ==",
-      "type": "package",
-      "files": [
-        "Microsoft.EntityFrameworkCore.SqlServer.1.0.0-rc2-final.nupkg.sha512",
-        "Microsoft.EntityFrameworkCore.SqlServer.nuspec",
-        "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.dll",
-        "lib/net451/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.dll",
-        "lib/netstandard1.3/Microsoft.EntityFrameworkCore.SqlServer.xml"
       ]
     },
     "Microsoft.Extensions.Caching.Abstractions/1.0.0-rc2-final": {
@@ -1519,12 +1505,18 @@
       "type": "project",
       "path": "../DbContextScope.EfCore/project.json",
       "msbuildProject": "../DbContextScope.EfCore/DbContextScope.EfCore.xproj"
+    },
+    "DbContextScope.UnitOfWork.Core/1.1.0": {
+      "type": "project",
+      "path": "../DbContextScope.UnitOfWork.Core/project.json",
+      "msbuildProject": "../DbContextScope.UnitOfWork.Core/DbContextScope.UnitOfWork.Core.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
       "DbContextScope.EfCore >= 1.1.0",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 1.0.0-rc2-final"
+      "DbContextScope.UnitOfWork.Core >= 1.1.0",
+      "Microsoft.EntityFrameworkCore.Relational >= 1.0.0-rc2-final"
     ],
     ".NETFramework,Version=v4.5.1": []
   },
