@@ -1,20 +1,20 @@
 ﻿{
   "title": "DbContextScope.EfCore",
-  "version": "1.1.0",
-  "authors": [ "Mehdi El Gueddari, Camilo Fierro" ],
+  "version": "1.2.0",
   "description": "DbContextScope is a simple and flexible way to manage your Entity Framework Core relational DbContext instances.",
+  "authors": [ "Mehdi El Gueddari, Camilo Fierro" ],
 
   "dependencies": {
-    "Microsoft.EntityFrameworkCore.Relational": "1.0.0-rc2-final"
+    "Microsoft.EntityFrameworkCore.Relational": "1.0.0"
   },
 
   "frameworks": {
-    "net4.5.1": { }
+    "net452": { }
   },
 
   "packOptions": {
-    "tags": [ "EntityFramework, ASP.NET, DbContext, DbContextScope" ],
+    "licenseUrl": "",
     "projectUrl": "https://github.com/ninety7/DbContextScope",
-    "licenseUrl": ""
+    "tags": [ "EntityFramework, ASP.NET, DbContext, DbContextScope" ]
   }
 }

@@ -1,11 +1,11 @@
 ﻿{
   "title": "DbContextScope.UnitOfWork.Core",
-  "version": "1.1.0",
-  "authors": [ "Camilo Fierro" ],
+  "version": "1.2.0",
   "description": "This package contains base interfaces that enable developers to implement Unit Of Work and Repository patterns with data stores.",
+  "authors": [ "Camilo Fierro" ],
 
   "frameworks": {
-    "net4.5.1": { }
+    "net452": { }
   },
 
   "packOptions": {

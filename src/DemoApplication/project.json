@@ -8,8 +8,8 @@
   },
 
   "dependencies": {
-    "DbContextScope.EfCore": "1.1.0",
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-rc2-final"
+    "DbContextScope.EfCore": "1.2.0",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0"
   },
 
   "commands": {
@@ -17,6 +17,6 @@
   },
 
   "frameworks": {
-    "net4.5.1": { }
+    "net461": { }
   }
 }
