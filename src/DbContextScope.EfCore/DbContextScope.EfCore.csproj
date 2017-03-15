@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>DbContextScope is a simple and flexible way to manage your Entity Framework Core relational DbContext instances.</Description>
+    <AssemblyTitle>DbContextScope.EfCore</AssemblyTitle>
+    <VersionPrefix>1.2.0</VersionPrefix>
+    <Authors>Mehdi El Gueddari, Camilo Fierro</Authors>
+    <TargetFramework>net452</TargetFramework>
+    <AssemblyName>DbContextScope.EfCore</AssemblyName>
+    <PackageId>DbContextScope.EfCore</PackageId>
+    <PackageTags>EntityFramework, ASP.NET, DbContext, DbContextScope</PackageTags>
+    <PackageProjectUrl>https://github.com/ninety7/DbContextScope</PackageProjectUrl>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>This package contains base interfaces that enable developers to implement Unit Of Work and Repository patterns with data stores.</Description>
+    <AssemblyTitle>DbContextScope.UnitOfWork.Core</AssemblyTitle>
+    <VersionPrefix>1.2.0</VersionPrefix>
+    <Authors>Camilo Fierro</Authors>
+    <TargetFramework>net452</TargetFramework>
+    <AssemblyName>DbContextScope.UnitOfWork.Core</AssemblyName>
+    <PackageId>DbContextScope.UnitOfWork.Core</PackageId>
+    <PackageTags>Unit of Work, Repository, Pattern, Data, EntityFramework, ASP.NET, DbContext</PackageTags>
+    <PackageProjectUrl>https://github.com/ninety7/DbContextScope</PackageProjectUrl>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>

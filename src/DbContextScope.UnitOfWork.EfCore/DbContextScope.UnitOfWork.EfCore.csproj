@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>This package provides a way to implement Unit Of Work and Repository patterns with Entity Framework Core and DbContextScope.</Description>
+    <AssemblyTitle>DbContextScope.UnitOfWork.EfCore</AssemblyTitle>
+    <VersionPrefix>1.2.0</VersionPrefix>
+    <Authors>Camilo Fierro</Authors>
+    <TargetFramework>net452</TargetFramework>
+    <AssemblyName>DbContextScope.UnitOfWork.EfCore</AssemblyName>
+    <PackageId>DbContextScope.UnitOfWork.EfCore</PackageId>
+    <PackageTags>Unit of Work, Repository, Pattern, Data, EntityFramework, ASP.NET, DbContext, DbContextScope</PackageTags>
+    <PackageProjectUrl>https://github.com/ninety7/DbContextScope</PackageProjectUrl>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DbContextScope.EfCore\DbContextScope.EfCore.csproj" />
+    <ProjectReference Include="..\DbContextScope.UnitOfWork.Core\DbContextScope.UnitOfWork.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>
